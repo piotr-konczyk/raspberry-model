@@ -1,7 +1,6 @@
-#include <iostream>
-#include "single-switch.h"
+#include "switches-array.h"
 
-SingleSwitch switches[40] = {
+SingleSwitch allSwitches[40] = {
     SingleSwitch(false, DefaultValue::NOT_CONFIGURABLE, "3.3V Power", 1),
     SingleSwitch(false, DefaultValue::NOT_CONFIGURABLE, "5V Power", 2),
     SingleSwitch(true, DefaultValue::LOW, "GPIO 2 (SDA1)", 3),

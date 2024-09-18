@@ -8,7 +8,6 @@ SingleSwitch switches[] = {
 int main()
 {
     Raspberry raspberry = Raspberry(switches);
-
     raspberry.getSwitchByIndex(0).displayInfo();
 
     return 0;
