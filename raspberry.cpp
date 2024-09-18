@@ -1,24 +1,19 @@
-#include <iostream>
 #include "raspberry.h"
+#include <iostream>
 
-SingleSwitch::SingleSwitch(bool isConfigurable, bool isToggled, std::string switchName, int switchNumber)
+Raspberry::Raspberry(SingleSwitch *switches)
 {
-    this->isConfigurable = isConfigurable;
-    this->isToggled = isToggled;
+    this->switches = switches;
+}
 
-    if (!isConfigurable)
+SingleSwitch Raspberry::getSwitchByIndex(int index)
+{
+
+    if (index < 0 || index >= SWITCHES_COUNT)
     {
-        this->isToggled = false;
+        std::cerr << "Index out of bounds!" << std::endl;
+        return SingleSwitch(false, DefaultValue::NOT_CONFIGURABLE, "", 0);
     }
 
-    this->switchName = switchName;
-    this->switchNumber = switchNumber;
-};
-
-void SingleSwitch::setIsToggled(bool isToggled)
-{
-    if (isConfigurable)
-    {
-        this->isToggled = isToggled;
-    }
-};
+    return switches[index];
+}

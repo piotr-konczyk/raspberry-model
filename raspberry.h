@@ -1,26 +1,21 @@
-struct SingleSwitch
-{
+#ifndef RASPBERRY_H
+#define RASPBERRY_H
 
-    // props
+#include "single-switch.h"
+#include <string>
 
-    bool isConfigurable;
-    bool isToggled;
-    std::string switchName;
-    int switchNumber;
-
-    // constructors
-
-    SingleSwitch(bool isConfigurable, bool isToggled, std::string switchName, int switchNumber);
-
-    // methods
-
-    void setIsToggled(bool isToggled);
-};
+const int SWITCHES_COUNT = 40;
 
 class Raspberry
 {
+private:
     std::string name;
     SingleSwitch *switches;
 
+public:
     Raspberry(SingleSwitch *switches);
+
+    SingleSwitch getSwitchByIndex(int index);
 };
+
+#endif // RASPBERRY_H

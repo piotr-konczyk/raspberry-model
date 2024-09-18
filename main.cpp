@@ -1,8 +1,15 @@
 #include <iostream>
+#include "raspberry.h"
 
-using namespace std;
+SingleSwitch switches[] = {
+    SingleSwitch(false, DefaultValue::NOT_CONFIGURABLE, "3.3V Power", 1),
+};
 
-int main() {
-    cout << "Hello world!" << endl;
+int main()
+{
+    Raspberry raspberry = Raspberry(switches);
+
+    raspberry.getSwitchByIndex(0).displayInfo();
+
     return 0;
 }
